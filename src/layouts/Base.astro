@@ -1,0 +1,93 @@
+---
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+
+interface Props {
+  title: string;
+  description: string;
+  accent?: string;
+}
+
+const { title, description, accent = '#0b5d7a' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body style={`--accent: ${accent}`}>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #eef2f4;
+    --sheet: #ffffff;
+    --ink: #10202a;
+    --muted: #4b5b64;
+    --line: #d5dee3;
+    --text-heading: 1.125rem;
+    --text-body: 1rem;
+    --text-sm: 0.875rem;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-size: var(--text-body);
+    line-height: 1.65;
+    background: var(--bg);
+  }
+
+  a {
+    color: inherit;
+    text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    text-underline-offset: 3px;
+    transition: color 160ms var(--ease), text-decoration-color 160ms var(--ease);
+  }
+
+  a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media print {
+    :root {
+      --text-heading: 10.5pt;
+      --text-body: 9pt;
+      --text-sm: 8.2pt;
+    }
+
+    :root,
+    body {
+      background: #fff;
+      line-height: 1.45;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
+</style>

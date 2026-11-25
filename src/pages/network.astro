@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Resume from '../components/Resume.astro';
+import { NETWORK, PERSON } from '../data/resume';
+---
+
+<Base title={`${PERSON.name} 이력서, ${NETWORK.role}`} description={NETWORK.summary} accent="#1f6b45">
+  <Resume variant={NETWORK} />
+</Base>
