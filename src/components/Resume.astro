@@ -1,5 +1,5 @@
 ---
-import { EDUCATION, PERSON, VARIANTS, type Variant } from '../data/resume';
+import { EDUCATION, PERSON, type Variant } from '../data/resume';
 
 interface Props {
   variant: Variant;
@@ -15,15 +15,6 @@ const host = (url: string) => url.replace(/^https?:\/\//, '');
       <h1>{PERSON.name}</h1>
       <p class="role">{variant.role}</p>
     </div>
-    <nav class="switch" aria-label="이력서 버전">
-      {
-        VARIANTS.map((v) => (
-          <a href={`/${v.slug}/`} aria-current={v.slug === variant.slug ? 'page' : undefined}>
-            {v.label}
-          </a>
-        ))
-      }
-    </nav>
     <p class="contact">
       <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>
       <a href={PERSON.github}>{host(PERSON.github)}</a>
@@ -125,7 +116,7 @@ const host = (url: string) => url.replace(/^https?:\/\//, '');
 
   .masthead {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     align-items: start;
     gap: 0.75rem 2rem;
     padding-bottom: 2rem;
@@ -155,30 +146,6 @@ const host = (url: string) => url.replace(/^https?:\/\//, '');
     margin: 0;
     font-size: var(--text-body);
     color: var(--muted);
-  }
-
-  .switch {
-    display: inline-flex;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 3px;
-    background: var(--bg);
-  }
-
-  .switch a {
-    padding: 0.35rem 0.9rem;
-    border-radius: 4px;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--muted);
-    text-decoration: none;
-    transition: background-color 160ms var(--ease), color 160ms var(--ease);
-  }
-
-  .switch a[aria-current='page'] {
-    background: var(--sheet);
-    color: var(--accent);
-    box-shadow: 0 1px 2px rgb(16 32 42 / 12%);
   }
 
   .row {
@@ -343,12 +310,7 @@ const host = (url: string) => url.replace(/^https?:\/\//, '');
       grid-template-columns: 1fr;
     }
 
-    .switch {
-      grid-row: 1;
-      justify-self: start;
-    }
-
-    .row {
+      .row {
       grid-template-columns: 1fr;
       gap: 0.75rem;
     }
@@ -374,7 +336,6 @@ const host = (url: string) => url.replace(/^https?:\/\//, '');
       box-shadow: none;
     }
 
-    .switch,
     .print {
       display: none;
     }

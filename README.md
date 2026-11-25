@@ -1,17 +1,18 @@
 # resume
 
-[resume.woosupar.dev](https://resume.woosupar.dev)의 소스입니다. 박우성의 한 페이지 이력서를 지원 직무에 따라 두 버전으로 냅니다. 프로젝트 자세한 내용은 [woosupar.dev](https://woosupar.dev)에 있습니다.
+[resume.woosupar.dev](https://resume.woosupar.dev)의 소스입니다. 박우성의 한 페이지 이력서입니다. 프로젝트 자세한 내용은 [woosupar.dev](https://woosupar.dev)에 있습니다.
 
 | 주소 | 내용 |
 |---|---|
-| `/devops/` | 클라우드, DevOps 엔지니어용 |
+| `/` | 클라우드, DevOps 엔지니어용 |
 | `/network/` | 네트워크, 인프라 엔지니어용 |
-| `/` | 두 버전 중 고르는 안내 |
+
+두 버전은 서로 링크하지 않습니다. 지원하는 곳에 맞는 주소 하나만 보냅니다. 검색에 걸리지 않도록 두 페이지 모두 `noindex`입니다.
 
 ## 구조
 
 ```text
-src/data/resume.ts ──▶ Resume.astro ──▶ /devops/, /network/ ──▶ Astro 빌드 (dist/) ──▶ Cloudflare Workers
+src/data/resume.ts ──▶ Resume.astro ──▶ /, /network/ ──▶ Astro 빌드 (dist/) ──▶ Cloudflare Workers
  (두 버전의 내용)        (한 장 레이아웃, 인쇄용 스타일)
 ```
 
@@ -24,7 +25,7 @@ Node 22가 필요합니다.
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/devops/
+npm run dev      # http://localhost:4321/
 npm run build
 ```
 

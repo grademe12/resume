@@ -191,5 +191,3 @@ export const NETWORK: Variant = {
     { when: '준비 중', name: 'CCNA' },
   ],
 };
-
-export const VARIANTS = [DEVOPS, NETWORK];

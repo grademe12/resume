@@ -17,6 +17,7 @@ const { title, description, accent = '#0b5d7a' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body style={`--accent: ${accent}`}>
