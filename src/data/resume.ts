@@ -142,7 +142,7 @@ export const NETWORK: Variant = {
     { group: '네트워크', items: 'TCP/IP, 서브넷 설계, NAT, DNS, TLS, VPN (Tailscale, WireGuard), Wake-on-LAN' },
     { group: '보안, 접근 제어', items: 'Teleport RBAC, AWS WAF, 보안 그룹과 NSG, VPC Endpoint, CloudFront OAC' },
     { group: '산업 프로토콜', items: 'Modbus TCP, OPC-UA, MQTT' },
-    { group: '진단', items: 'Wireshark, 커널 TCP 카운터, Prometheus, Grafana' },
+    { group: '진단', items: '커널 TCP 카운터, Prometheus, Grafana' },
     { group: '인프라 코드', items: 'Terraform (AWS, Azure, NCP, Cloudflare), GitHub Actions, Docker' },
   ],
   projects: [
@@ -163,7 +163,7 @@ export const NETWORK: Variant = {
       points: [
         'API Gateway를 VPC Link로 internal ALB에 연결해 서비스를 사설망에 두고, 인증은 Lambda authorizer에서 처리',
         'Interface VPC Endpoint와 STS Endpoint로 클러스터의 AWS API 호출을 사설 경로로 구성',
-        '이전 단계에서 운영 서비스를 직접 공격해 점검: WAF 속도 제한으로 무차별 요청 139건 차단, TLS 적용 후 Wireshark로 핸드셰이크 확인, S3 직접 접근을 CloudFront OAC로 차단',
+        '이전 단계에서 운영 서비스를 직접 공격해 점검: WAF 속도 제한으로 무차별 요청 139건 차단, ACM으로 TLS 적용, S3 직접 접근을 CloudFront OAC로 차단',
       ],
     },
     {
